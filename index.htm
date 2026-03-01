@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blue Economist</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background:#fff;
+    color:#111;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    background: #0033cc;
+    padding: 20px 40px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Brand & tagline */
+.brand-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: white;
+}
+
+.tagline-container {
+    width: 100%;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.tagline {
+    white-space: nowrap;
+    display: inline-block;
+    padding-left: 100%;
+    animation: moveLeft 15s linear infinite;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 14px;
+}
+@keyframes moveLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Search bar top-right */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.search-container input {
+    padding: 6px 28px 6px 10px;
+    border-radius: 18px;
+    border: none;
+    font-size: 13px;
+    outline: none;
+    width: 150px;
+}
+
+.search-container .search-icon {
+    position: absolute;
+    right: 8px;
+    font-size: 14px;
+    color: #0033cc;
+}
+
+/* Blue line */
+.blue-line {
+    width: 100%;
+    height: 6px;
+    background: #002299;
+}
+
+/* Main blog grid */
+main {
+    max-width: 1000px; /* page width limited */
+    margin: auto;
+    padding: 40px 20px 60px 20px;
+}
+
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.blog-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.image-placeholder {
+    height: 150px;
+    border: 2px dashed #aaa;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 14px;
+}
+
+.blog-card h2 { font-size: 20px; margin-bottom: 10px; }
+.blog-card p { font-size: 14px; color: #555; }
+
+/* Footer */
+footer {
+    background: #f8f8f8;
+    padding: 40px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #0033cc;
+    text-decoration: none;
+    font-weight: 500;
+}
+.footer-links a:hover { text-decoration: underline; }
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    header { flex-direction: column; align-items:flex-start; }
+    .search-container { margin-top: 15px; }
+    main { padding: 20px 10px 40px 10px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="brand-container">
+        <h1 class="brand">Blue Economist</h1>
+        <div class="tagline-container">
+            <div class="tagline">
+                Intelligence for Entrepreneurs. &nbsp; Decode Markets. &nbsp; Build Strategic Advantage. &nbsp; See Opportunity Early.
+            </div>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search articles...">
+        <span class="search-icon">&#128269;</span>
+    </div>
+</header>
+
+<div class="blue-line"></div>
+
+<main>
+    <div class="blog-grid" id="blogGrid">
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>5 Profitable Business Ideas for 2026</h2><p>Discover innovative business ideas that have the potential to generate revenue quickly and sustainably in today’s economy.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>How to Secure Funding for Your Startup</h2><p>Step-by-step guide on attracting investors and preparing your pitch to successfully fund your new venture.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Top Marketing Strategies for Small Businesses</h2><p>Effective marketing techniques that drive traffic, sales, and customer loyalty without breaking your budget.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Analyzing Market Trends Before They Happen</h2><p>Learn to anticipate shifts in your industry to position your business ahead of competitors.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Scaling Your Business: From Local to National</h2><p>Proven strategies to expand operations efficiently while maintaining quality and profitability.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Using AI to Improve Decision Making</h2><p>Discover how AI tools can enhance productivity, forecasting, and overall strategic planning.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Effective Leadership in Startups</h2><p>Insights on leading small teams to success and fostering a culture of innovation.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Financial Planning for Entrepreneurs</h2><p>How to manage cash flow, investments, and budgeting to sustain long-term business growth.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Building a Strong Brand Identity</h2><p>Practical steps to create a recognizable and respected brand that resonates with your audience.</p></div>
+        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Networking to Unlock Opportunities</h2><p>Tips for connecting with investors, mentors, and industry leaders to grow your business network.</p></div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Newsletter</a>
+    </div>
+    <p>&copy; 2026 Blue Economist</p>
+</footer>
+
+<script>
+// Live search filtering
+const searchInput = document.getElementById('searchInput');
+const blogGrid = document.getElementById('blogGrid');
+const cards = blogGrid.getElementsByClassName('blog-card');
+
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase();
+    for (let card of cards) {
+        const title = card.querySelector('h2').innerText.toLowerCase();
+        card.style.display = title.includes(query) ? '' : 'none';
+    }
+});
+</script>
+
+</body>
+</html>
