@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Blue Reviewer | Smart Business Insights</title>
+    <title>The Blue Reviewer | Curated Home & Decor</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,29 +11,32 @@
 
     <style>
         :root {
-            --primary-blue: #0033cc;
-            --dark-blue: #002299;
-            --text-main: #1a1a1a;
-            --text-muted: #666;
-            --bg-light: #f9f9fb;
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --accent-blue: #0044cc;
+            --soft-gray: #f8f9fa;
+            --text-dark: #1a1a1a;
+            --text-light: #6c757d;
+            --border: #eaeaea;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fff;
-            color: var(--text-main);
+            background-color: var(--white);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
-        /* --- Header Section --- */
+        /* --- Minimalist Header --- */
         .site-header {
-            background: var(--primary-blue);
-            color: white;
-            padding: 1.5rem 5%;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 1rem 5%;
+            border-bottom: 1px solid var(--border);
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         .header-content {
@@ -42,206 +45,277 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 2rem;
         }
 
         .brand h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            letter-spacing: -0.5px;
+            font-size: 1.8rem;
+            color: var(--text-dark);
+            text-decoration: none;
         }
 
-        /* Marquee Tagline */
-        .marquee-wrapper {
-            background: var(--dark-blue);
-            padding: 8px 0;
-            overflow: hidden;
-            white-space: nowrap;
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
-        .marquee-text {
-            display: inline-block;
-            padding-left: 100%;
-            animation: scroll 20s linear infinite;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-
-        /* Search Input */
-        .search-box {
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .search-box input {
-            padding: 10px 40px 10px 16px;
-            border-radius: 50px;
-            border: none;
-            width: 240px;
+        .cta-btn {
+            background: var(--accent-blue);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
             font-size: 0.9rem;
-            outline: none;
             transition: var(--transition);
         }
 
-        .search-box input:focus { width: 280px; box-shadow: 0 0 0 4px rgba(255,255,255,0.2); }
+        .cta-btn:hover { background: #0033aa; transform: translateY(-2px); }
 
-        /* --- Main Content --- */
-        main {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 5%;
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--soft-gray);
         }
+
+        .hero h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { color: var(--text-light); max-width: 600px; margin: 0 auto; }
+
+        /* --- Review Grid --- */
+        main { max-width: 1200px; margin: 40px auto; padding: 0 5%; }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .card {
-            background: #fff;
-            border-radius: 16px;
-            border: 1px solid #edf2f7;
+            border: 1px solid var(--border);
+            border-radius: 12px;
             overflow: hidden;
             transition: var(--transition);
-            cursor: pointer;
             display: flex;
             flex-direction: column;
+            text-decoration: none; /* makes whole card clickable */
+            color: inherit;
         }
 
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-            border-color: var(--primary-blue);
-        }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.05); border-color: var(--accent-blue); }
 
         .card-img {
-            height: 180px;
-            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+            height: 220px;
+            background: #eee;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            color: var(--primary-blue);
+            color: #999;
             font-weight: 600;
+            background-size: cover;
+            background-position: center;
         }
 
-        .card-body { padding: 1.5rem; }
-        .card-body h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-main);
-        }
+        .card-body { padding: 20px; flex-grow: 1; }
+        .card-body h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 10px; }
+        .card-body p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 15px; }
 
-        .card-body p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
+        .amazon-btn {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: #FF9900; /* Amazon Orange */
+            color: #000;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border-radius: 4px;
+            margin-top: auto;
         }
 
         /* --- Footer --- */
         footer {
-            background: var(--bg-light);
-            padding: 4rem 5% 2rem;
-            margin-top: 5rem;
-            text-align: center;
-            border-top: 1px solid #eee;
+            background: #111;
+            color: #fff;
+            padding: 60px 5% 20px;
+            margin-top: 80px;
         }
 
-        .footer-nav { margin-bottom: 2rem; }
-        .footer-nav a {
-            color: var(--primary-blue);
-            text-decoration: none;
-            margin: 0 1rem;
-            font-weight: 500;
-            font-size: 0.9rem;
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 40px;
         }
 
-        .copyright { color: #999; font-size: 0.85rem; }
+        .footer-col h4 { margin-bottom: 20px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #aaa; text-decoration: none; font-size: 0.9rem; }
+        .footer-col ul li a:hover { color: var(--white); }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content { flex-direction: column; text-align: center; }
-            .search-box input { width: 100%; }
-        }
+        .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: #666; }
+
+        @media (max-width: 768px) { .header-content { flex-direction: column; gap: 15px; } }
     </style>
 </head>
 <body>
 
 <header class="site-header">
     <div class="header-content">
-        <div class="brand">
-            <h1>The Blue Reviewer</h1>
-        </div>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search insights...">
+        <a href="index.html" class="brand" style="text-decoration:none;"><h1>The Blue Reviewer</h1></a>
+        <div class="nav-right">
+            <a href="#newsletter" class="cta-btn">Get Best Deals First</a>
         </div>
     </div>
 </header>
 
-<div class="marquee-wrapper">
-    <div class="marquee-text">
-        Premium Market Analysis • Real-time Business Reviews • Economic Strategy 2026 • Expert Perspectives 
-    </div>
-</div>
+<section class="hero">
+    <h2>Elevated Living</h2>
+    <p>Expert reviews of the best Amazon Home & Decor finds to transform your space with style and functionality.</p>
+</section>
 
 <main>
-    <div class="grid" id="blogGrid">
-        <!-- Content repeated for structure -->
-        <article class="card">
-            <div class="card-img">Market Report</div>
+    <div class="grid">
+        <!-- Product 1 -->
+        <a href="reviews/purifier.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
             <div class="card-body">
-                <h2>5 Profitable Business Ideas for 2026</h2>
-                <p>Innovative ventures set to lead the market in the upcoming fiscal years.</p>
+                <h3>Levoit Air Purifier</h3>
+                <p>The gold standard for clean home air. Quiet, efficient, and features a sleek design perfect for bedrooms.</p>
+                <div class="amazon-btn">View on Amazon</div>
             </div>
-        </article>
-        <article class="card">
-            <div class="card-img">Startup Guide</div>
+        </a>
+
+        <!-- Product 2 -->
+        <a href="reviews/blanket.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
             <div class="card-body">
-                <h2>How to Secure Venture Funding</h2>
-                <p>A masterclass in navigating the complex world of startup capital.</p>
+                <h3>Luna Weighted Blanket</h3>
+                <p>Premium 100% Oeko-Tex cotton weighted comfort for better sleep and deep pressure stimulation.</p>
+                <div class="amazon-btn">View on Amazon</div>
             </div>
-        </article>
-        <article class="card">
-            <div class="card-img">AI Strategy</div>
+        </a>
+
+        <!-- Product 3 -->
+        <a href="reviews/smart-light.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
             <div class="card-body">
-                <h2>AI in Executive Decision Making</h2>
-                <p>Leveraging neural networks to eliminate cognitive bias in business.</p>
+                <h3>Philips Hue Starter Kit</h3>
+                <p>Transform your home mood with the click of a button. The best ecosystem for smart lighting enthusiasts.</p>
+                <div class="amazon-btn">View on Amazon</div>
             </div>
-        </article>
-        <!-- Add more articles as needed -->
+        </a>
+
+        <!-- Product 4 -->
+        <a href="reviews/espresso.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
+            <div class="card-body">
+                <h3>Breville Bambino Plus</h3>
+                <p>Barista-quality coffee in your own kitchen. Compact, powerful, and features an automatic steam wand.</p>
+                <div class="amazon-btn">View on Amazon</div>
+            </div>
+        </a>
+
+        <!-- Product 5 -->
+        <a href="reviews/mirror.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
+            <div class="card-body">
+                <h3>NeuType Arched Mirror</h3>
+                <p>An elegant full-length piece with an aluminum alloy frame that adds depth to any living room.</p>
+                <div class="amazon-btn">View on Amazon</div>
+            </div>
+        </a>
+
+        <!-- Product 6 -->
+        <a href="reviews/towels.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
+            <div class="card-body">
+                <h3>Turkish Cotton Bath Set</h3>
+                <p>Hotel-level luxury for your bathroom with ultra-absorbent, long-staple cotton fibers.</p>
+                <div class="amazon-btn">View on Amazon</div>
+            </div>
+        </a>
+
+        <!-- Product 7 -->
+        <a href="reviews/vacuum.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
+            <div class="card-body">
+                <h3>Shark Navigator Pro</h3>
+                <p>The workhorse of home cleaning. Lift-away technology makes it perfect for stairs and pet owners.</p>
+                <div class="amazon-btn">View on Amazon</div>
+            </div>
+        </a>
+
+        <!-- Product 8 -->
+        <a href="reviews/lamp.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
+            <div class="card-body">
+                <h3>LED Desk Office Lamp</h3>
+                <p>Flicker-free lighting with 5 color modes and 7 brightness levels for your workspace comfort.</p>
+                <div class="amazon-btn">View on Amazon</div>
+            </div>
+        </a>
+
+        <!-- Product 9 -->
+        <a href="reviews/curtains.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
+            <div class="card-body">
+                <h3>Thermal Blackout Curtains</h3>
+                <p>Energy-efficient and 100% light blocking for ultimate privacy and improved daytime sleep.</p>
+                <div class="amazon-btn">View on Amazon</div>
+            </div>
+        </a>
+
+        <!-- Product 10 -->
+        <a href="reviews/candles.html" class="card">
+            <div class="card-img" style="background-image: url('https://m.media-amazon.com');"></div>
+            <div class="card-body">
+                <h3>NEST Fragrances Candle</h3>
+                <p>Sophisticated, long-burning luxury scents that turn any house into a welcoming home.</p>
+                <div class="amazon-btn">View on Amazon</div>
+            </div>
+        </a>
     </div>
 </main>
 
 <footer>
-    <nav class="footer-nav">
-        <a href="#">Analysis</a>
-        <a href="#">Reports</a>
-        <a href="#">Contact</a>
-        <a href="#">Privacy</a>
-    </nav>
-    <p class="copyright">&copy; 2026 The Blue Reviewer. All rights reserved.</p>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>The Blue Reviewer</h4>
+            <p style="color: #666; font-size: 0.85rem; line-height: 1.4;">Curating the finest home decor and business essentials since 2026. We test so you don't have to.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Explore</h4>
+            <ul>
+                <li><a href="#">Latest Reviews</a></li>
+                <li><a href="#">Home & Decor</a></li>
+                <li><a href="#">Kitchen Tools</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Disclosure</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Join Us</h4>
+            <p style="color: #666; font-size: 0.85rem; margin-bottom:10px;">Get the best Amazon deals weekly.</p>
+            <a href="#" class="cta-btn" style="padding: 5px 15px; font-size: 0.75rem;">Subscribe</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 The Blue Reviewer. As an Amazon Associate, we earn from qualifying purchases.
+    </div>
 </footer>
-
-<script>
-    const searchInput = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.card');
-
-    searchInput.addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        cards.forEach(card => {
-            const content = card.textContent.toLowerCase();
-            card.style.display = content.includes(term) ? 'flex' : 'none';
-        });
-    });
-</script>
 
 </body>
 </html>
