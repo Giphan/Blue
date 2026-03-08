@@ -1,218 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Blue Reviewer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Blue Reviewer | Smart Business Insights</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0033cc;
+            --dark-blue: #002299;
+            --text-main: #1a1a1a;
+            --text-muted: #666;
+            --bg-light: #f9f9fb;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-<style>
-* { margin:0; padding:0; box-sizing:border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    font-family: 'Inter', sans-serif;
-    background:#fff;
-    color:#111;
-    overflow-x: hidden;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            color: var(--text-main);
+            line-height: 1.6;
+        }
 
-/* Header */
-header {
-    background: #0033cc;
-    padding: 20px 40px;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-}
+        /* --- Header Section --- */
+        .site-header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 1.5rem 5%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-/* Brand & tagline */
-.brand-container {
-    display: flex;
-    flex-direction: column;
-}
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
 
-.brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 36px;
-    font-weight: 600;
-    color: white;
-}
+        .brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            letter-spacing: -0.5px;
+        }
 
-.tagline-container {
-    width: 100%;
-    overflow: hidden;
-    margin-top: 5px;
-}
+        /* Marquee Tagline */
+        .marquee-wrapper {
+            background: var(--dark-blue);
+            padding: 8px 0;
+            overflow: hidden;
+            white-space: nowrap;
+        }
 
-.tagline {
-    white-space: nowrap;
-    display: inline-block;
-    padding-left: 100%;
-    animation: moveLeft 15s linear infinite;
-    color: #ffffff;
-    font-weight: 500;
-    font-size: 14px;
-}
-@keyframes moveLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll 20s linear infinite;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.9);
+        }
 
-/* Search bar top-right */
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    margin-top: 5px;
-}
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
 
-.search-container input {
-    padding: 6px 28px 6px 10px;
-    border-radius: 18px;
-    border: none;
-    font-size: 13px;
-    outline: none;
-    width: 150px;
-}
+        /* Search Input */
+        .search-box {
+            position: relative;
+            flex-shrink: 0;
+        }
 
-.search-container .search-icon {
-    position: absolute;
-    right: 8px;
-    font-size: 14px;
-    color: #0033cc;
-}
+        .search-box input {
+            padding: 10px 40px 10px 16px;
+            border-radius: 50px;
+            border: none;
+            width: 240px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+        }
 
-/* Blue line */
-.blue-line {
-    width: 100%;
-    height: 6px;
-    background: #002299;
-}
+        .search-box input:focus { width: 280px; box-shadow: 0 0 0 4px rgba(255,255,255,0.2); }
 
-/* Main blog grid */
-main {
-    max-width: 1000px; /* page width limited */
-    margin: auto;
-    padding: 40px 20px 60px 20px;
-}
+        /* --- Main Content --- */
+        main {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 5%;
+        }
 
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-}
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
 
-.blog-card {
-    border: 1px solid #ddd;
-    padding: 20px;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-}
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            border: 1px solid #edf2f7;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
 
-.blog-card:hover {
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+            border-color: var(--primary-blue);
+        }
 
-.image-placeholder {
-    height: 150px;
-    border: 2px dashed #aaa;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
-    font-size: 14px;
-}
+        .card-img {
+            height: 180px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f0f4ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
 
-.blog-card h2 { font-size: 20px; margin-bottom: 10px; }
-.blog-card p { font-size: 14px; color: #555; }
+        .card-body { padding: 1.5rem; }
+        .card-body h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
 
-/* Footer */
-footer {
-    background: #f8f8f8;
-    padding: 40px 20px;
-    text-align: center;
-    font-size: 14px;
-}
+        .card-body p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
 
-.footer-links a {
-    margin: 0 10px;
-    color: #0033cc;
-    text-decoration: none;
-    font-weight: 500;
-}
-.footer-links a:hover { text-decoration: underline; }
+        /* --- Footer --- */
+        footer {
+            background: var(--bg-light);
+            padding: 4rem 5% 2rem;
+            margin-top: 5rem;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
 
-/* Responsive */
-@media screen and (max-width: 768px) {
-    header { flex-direction: column; align-items:flex-start; }
-    .search-container { margin-top: 15px; }
-    main { padding: 20px 10px 40px 10px; }
-}
-</style>
+        .footer-nav { margin-bottom: 2rem; }
+        .footer-nav a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .copyright { color: #999; font-size: 0.85rem; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; text-align: center; }
+            .search-box input { width: 100%; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <div class="brand-container">
-        <h1 class="brand">Blue Economist</h1>
-        <div class="tagline-container">
-            <div class="tagline">
-                Smart Reviews for Smarter Decisions
-            </div>
+<header class="site-header">
+    <div class="header-content">
+        <div class="brand">
+            <h1>The Blue Reviewer</h1>
         </div>
-    </div>
-
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Search articles...">
-        <span class="search-icon">&#128269;</span>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search insights...">
+        </div>
     </div>
 </header>
 
-<div class="blue-line"></div>
+<div class="marquee-wrapper">
+    <div class="marquee-text">
+        Premium Market Analysis • Real-time Business Reviews • Economic Strategy 2026 • Expert Perspectives 
+    </div>
+</div>
 
 <main>
-    <div class="blog-grid" id="blogGrid">
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>5 Profitable Business Ideas for 2026</h2><p>Discover innovative business ideas that have the potential to generate revenue quickly and sustainably in today’s economy.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>How to Secure Funding for Your Startup</h2><p>Step-by-step guide on attracting investors and preparing your pitch to successfully fund your new venture.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Top Marketing Strategies for Small Businesses</h2><p>Effective marketing techniques that drive traffic, sales, and customer loyalty without breaking your budget.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Analyzing Market Trends Before They Happen</h2><p>Learn to anticipate shifts in your industry to position your business ahead of competitors.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Scaling Your Business: From Local to National</h2><p>Proven strategies to expand operations efficiently while maintaining quality and profitability.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Using AI to Improve Decision Making</h2><p>Discover how AI tools can enhance productivity, forecasting, and overall strategic planning.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Effective Leadership in Startups</h2><p>Insights on leading small teams to success and fostering a culture of innovation.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Financial Planning for Entrepreneurs</h2><p>How to manage cash flow, investments, and budgeting to sustain long-term business growth.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Building a Strong Brand Identity</h2><p>Practical steps to create a recognizable and respected brand that resonates with your audience.</p></div>
-        <div class="blog-card"><div class="image-placeholder">Image</div><h2>Networking to Unlock Opportunities</h2><p>Tips for connecting with investors, mentors, and industry leaders to grow your business network.</p></div>
+    <div class="grid" id="blogGrid">
+        <!-- Content repeated for structure -->
+        <article class="card">
+            <div class="card-img">Market Report</div>
+            <div class="card-body">
+                <h2>5 Profitable Business Ideas for 2026</h2>
+                <p>Innovative ventures set to lead the market in the upcoming fiscal years.</p>
+            </div>
+        </article>
+        <article class="card">
+            <div class="card-img">Startup Guide</div>
+            <div class="card-body">
+                <h2>How to Secure Venture Funding</h2>
+                <p>A masterclass in navigating the complex world of startup capital.</p>
+            </div>
+        </article>
+        <article class="card">
+            <div class="card-img">AI Strategy</div>
+            <div class="card-body">
+                <h2>AI in Executive Decision Making</h2>
+                <p>Leveraging neural networks to eliminate cognitive bias in business.</p>
+            </div>
+        </article>
+        <!-- Add more articles as needed -->
     </div>
 </main>
 
 <footer>
-    <div class="footer-links">
-        <a href="#">About</a>
+    <nav class="footer-nav">
+        <a href="#">Analysis</a>
+        <a href="#">Reports</a>
         <a href="#">Contact</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Newsletter</a>
-    </div>
-    <p>&copy; 2026 The Blue Reviewer</p>
+        <a href="#">Privacy</a>
+    </nav>
+    <p class="copyright">&copy; 2026 The Blue Reviewer. All rights reserved.</p>
 </footer>
 
 <script>
-// Live search filtering
-const searchInput = document.getElementById('searchInput');
-const blogGrid = document.getElementById('blogGrid');
-const cards = blogGrid.getElementsByClassName('blog-card');
+    const searchInput = document.getElementById('searchInput');
+    const cards = document.querySelectorAll('.card');
 
-searchInput.addEventListener('input', () => {
-    const query = searchInput.value.toLowerCase();
-    for (let card of cards) {
-        const title = card.querySelector('h2').innerText.toLowerCase();
-        card.style.display = title.includes(query) ? '' : 'none';
-    }
-});
+    searchInput.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        cards.forEach(card => {
+            const content = card.textContent.toLowerCase();
+            card.style.display = content.includes(term) ? 'flex' : 'none';
+        });
+    });
 </script>
 
 </body>
