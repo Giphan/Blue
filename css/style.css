@@ -133,7 +133,7 @@ footer {
 .footer-bottom { text-align: center; padding-top: 30px; font-size: 0.8rem; color: #666; }
 
 @media (max-width: 768px) { .header-content { flex-direction: column; gap: 15px; } }
-/* --- Header Container --- */
+/* Header container */
 .site-header {
     padding: 1rem 5%;
     border-bottom: 1px solid var(--border);
@@ -151,23 +151,20 @@ footer {
     align-items: center;
 }
 
-/* --- Brand --- */
 .brand h1 {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     color: var(--text-dark);
-    text-decoration: none;
 }
 
-/* --- Right Side: Nav + Subscribe --- */
+/* Right side: nav + subscribe */
 .nav-right {
     display: flex;
     align-items: center;
     gap: 15px;
-    position: relative;
 }
 
-/* --- Subscribe Button --- */
+/* Subscribe button */
 .cta-btn {
     background: var(--accent-blue);
     color: #fff;
@@ -175,53 +172,79 @@ footer {
     border-radius: 5px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 0.9rem;
-    transition: var(--transition);
 }
 
-.cta-btn:hover {
-    background: #0033aa;
-    transform: translateY(-2px);
-}
-
-/* --- Navigation Icon --- */
-.nav-icon {
+/* Navigation & search icons */
+.nav-icon, .search-icon {
     font-size: 1.5rem;
     cursor: pointer;
     user-select: none;
 }
 
-/* --- Dropdown Menu --- */
-.nav-menu {
-    display: none; /* hidden by default */
-    position: absolute;
-    top: 100%; /* dropdown below header */
-    right: 0;
+/* Side menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* hidden initially */
+    width: 250px;
+    height: 100%;
     background: var(--white);
+    box-shadow: 3px 0 15px rgba(0,0,0,0.1);
+    display: flex;
     flex-direction: column;
-    width: 180px;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    padding: 10px 0;
-    z-index: 1001;
+    padding: 60px 15px;
+    gap: 15px;
+    transition: left 0.3s ease;
+    z-index: 1002;
 }
 
-.nav-menu a {
-    padding: 8px 15px;
+.side-menu a {
     text-decoration: none;
     color: var(--text-dark);
     font-weight: 500;
-    transition: color 0.2s;
+    font-size: 1rem;
 }
 
-.nav-menu a:hover {
+.side-menu a:hover {
     color: var(--accent-blue);
 }
 
-/* --- Media Query for Mobile --- */
+/* Search box */
+.search-box {
+    position: absolute;
+    top: 100%;
+    right: 5%;
+    display: none;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    z-index: 1001;
+}
+
+.search-box input {
+    padding: 6px 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid var(--border);
+}
+
+.search-box button {
+    padding: 6px 10px;
+    background: var(--accent-blue);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Active classes */
+.side-menu.active { left: 0; }
+.search-box.active { display: block; }
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .nav-menu {
-        width: 150px;
-    }
+    .side-menu { width: 200px; }
+    .search-box input { width: 150px; }
 }
