@@ -1,21 +1,24 @@
-<script>
-function toggleMenu() {
-    const menu = document.getElementById('navMenu');
-    // Toggle between hidden and visible
-    if(menu.style.display === 'flex') {
-        menu.style.display = 'none';
-    } else {
-        menu.style.display = 'flex';
-        menu.style.flexDirection = 'column';
-    }
-}
+const navBtn = document.getElementById('navBtn');
+const sideMenu = document.getElementById('sideMenu');
+const searchBtn = document.getElementById('searchBtn');
+const searchBox = document.getElementById('searchBox');
 
-// Optional: Close menu when clicking outside
-document.addEventListener('click', function(event) {
-    const menu = document.getElementById('navMenu');
-    const icon = document.querySelector('.nav-icon');
-    if(!menu.contains(event.target) && !icon.contains(event.target)) {
-        menu.style.display = 'none';
+// Toggle side menu
+navBtn.addEventListener('click', () => {
+    sideMenu.classList.toggle('active');
+});
+
+// Toggle search box
+searchBtn.addEventListener('click', () => {
+    searchBox.classList.toggle('active');
+});
+
+// Close side menu or search if clicked outside
+document.addEventListener('click', (e) => {
+    if(!sideMenu.contains(e.target) && !navBtn.contains(e.target)) {
+        sideMenu.classList.remove('active');
+    }
+    if(!searchBox.contains(e.target) && !searchBtn.contains(e.target)) {
+        searchBox.classList.remove('active');
     }
 });
-</script>
