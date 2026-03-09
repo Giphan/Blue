@@ -18,7 +18,7 @@
         </div>
     </div>
 
-    <!-- Side Menu (hidden initially) -->
+    <!-- Hidden Side Menu -->
     <nav class="side-menu" id="sideMenu">
         <a href="index.php">Home & Decor</a>
         <a href="#">Kitchen</a>
@@ -26,7 +26,7 @@
         <a href="#">About Us</a>
     </nav>
 
-    <!-- Search Box (hidden initially) -->
+    <!-- Hidden Search Box -->
     <div class="search-box" id="searchBox">
         <form action="index.php" method="get">
             <input type="text" name="q" placeholder="Search products...">
