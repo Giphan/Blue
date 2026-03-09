@@ -2,7 +2,9 @@
     <div class="footer-grid">
         <div class="footer-col">
             <h4>The Blue Reviewer</h4>
-            <p style="color: #666; font-size: 0.85rem; line-height: 1.4;">Curating the finest home decor and business essentials since 2026. We test so you don't have to.</p>
+            <p style="color: #666; font-size: 0.85rem; line-height: 1.4;">
+                Curating the finest home decor and business essentials since 2026. We test so you don't have to.
+            </p>
         </div>
         <div class="footer-col">
             <h4>Explore</h4>
