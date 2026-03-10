@@ -223,25 +223,33 @@ footer {
     z-index: 10000;
 }
 
-.search-box input {
-    padding: 6px 10px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid var(--border);
+.search-box {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
-.search-box button {
-    padding: 6px 10px;
-    background: var(--accent-blue);
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.search-box.active {
+    display: block; /* Shown when active */
 }
 
-/* --- Active Classes --- */
-.side-menu.active { left: 0; }
-.search-box.active { display: block; }
+.side-menu {
+    position: fixed;
+    right: -250px; /* Hidden off-screen */
+    transition: 0.3s;
+    /* ... other styles ... */
+}
+
+.side-menu.active {
+    right: 0;
+}
+
 
 /* --- Mobile Adjustments --- */
 @media (max-width: 768px) {
