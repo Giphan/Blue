@@ -1,8 +1,12 @@
 <header class="site-header">
     <div class="header-content">
-        <a href="index.php" class="brand"><h1>The Blue Reviewer</h1></a>
+        <a href="index.php"
+            <!-- Brand -->
+<div class="brand">
+    <h1>The Blue Reviewer</h1>
+</div>
 
-        <div class="nav-right">
+       <div class="nav-right">
             <div class="nav-icon" id="navBtn">☰</div>
             <!-- Search Trigger -->
             <div class="search-icon" id="searchBtn">🔍</div>
@@ -27,4 +31,3 @@
         </form>
     </div>
 </header>
-
