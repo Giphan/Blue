@@ -1,23 +1,26 @@
-const navBtn = document.getElementById('navBtn');
-const sideMenu = document.getElementById('sideMenu');
 const searchBtn = document.getElementById('searchBtn');
 const searchBox = document.getElementById('searchBox');
+const searchInput = document.getElementById('searchInput');
+const closeSearch = document.getElementById('closeSearch');
+const navBtn = document.getElementById('navBtn');
+const sideMenu = document.getElementById('sideMenu');
 
-// Toggle side menu
-navBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // prevent click from bubbling
-    sideMenu.classList.toggle('active');
-});
-
-// Toggle search box
-searchBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
+// Toggle Search
+searchBtn.addEventListener('click', () => {
     searchBox.classList.toggle('active');
+    if (searchBox.classList.contains('active')) {
+        searchInput.focus(); // Focus input immediately
+        sideMenu.classList.remove('active'); // Close menu if search is open
+    }
 });
 
-// Close side menu or search if clicking outside
-document.addEventListener('click', () => {
-    sideMenu.classList.remove('active');
-    searchBox.classList.remove('active');
+// Toggle Side Menu
+navBtn.addEventListener('click', () => {
+    sideMenu.classList.toggle('active');
+    searchBox.classList.remove('active'); // Close search if menu is open
 });
+
+// Close Search on 'X'
+closeSearch.addEventListener('click', () => {
+    searchBox.classList.remove('active');
 });
