@@ -1,2 +1,0 @@
-# Blue
-blue economist
