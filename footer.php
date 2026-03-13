@@ -17,7 +17,7 @@
         <div class="footer-col">
             <h4>Support</h4>
             <ul>
-                <li><a href="#">About Us</a></li>
+               <li><a href="about.php">About Us</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Disclosure</a></li>
             </ul>
