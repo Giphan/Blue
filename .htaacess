@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Redirect /about-us to about.php
+RewriteRule ^about-us/?$ about.php [L]
+
+# Redirect /home to index.php (optional)
+RewriteRule ^home/?$ index.php [L]
+
+# Optional: hide .php extensions for all files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([a-zA-Z0-9_-]+)$ $1.php [L]
